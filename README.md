@@ -350,7 +350,7 @@ if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bas
 zerotier-cli join "$ZT_NET"
 sleep 5
 NODE_ID=$(zerotier-cli info | awk '{print $3}')
-echo '{"config":{"authorized":true}}' | curl -X POST -H 'Authorization: Bearer $ZT_API_KEY' -d @- \
+echo '{"config":{"authorized":true}}' | curl -X POST -H "Authorization: Bearer $ZT_API_KEY" -d @- \
     "https://my.zerotier.com/api/network/$ZT_NET/member/$NODE_ID"
 ```
 
